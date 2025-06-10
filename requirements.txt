@@ -1,4 +1,7 @@
 google-play-scraper
 pandas
-pip install pandas transformers scikit-learn spacy nltk
-python -m spacy download en_core_web_sm
+pandas 
+transformers
+scikit-learn 
+spacy nltk
+
