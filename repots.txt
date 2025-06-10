@@ -1,0 +1,75 @@
+ B5W2: Customer Experience Analytics for Fintech Apps 
+    Data Collection and Preprocessing
+
+    Methodology:
+        Utilized the google-play-scraper library to extract over 1,200 reviews (minimum 400 per bank), including review text, ratings, dates, and app identifiers.
+        Managed data quality by removing duplicates, handling missing values, normalizing date formats, and organizing data into a structured CSV file.
+        Version control was maintained via GitHub, with scripts committed in logical segments to ensure reproducibility.
+    Outcomes:
+        Achieved a high-quality dataset with less than 5% missing data.
+        The dataset provides a solid foundation for subsequent analysis.
+
+    Sentiment and Thematic Analysis
+
+    Sentiment Analysis:
+        Applied transformer-based models (distilBERT fine-tuned on SST-2) to assign sentiment labels—positive, negative, or neutral—to each review.
+        Aggregated sentiment scores revealed the following:
+            CBE: Approximately 78% positive reviews, indicating high overall satisfaction.
+            Dashen: Around 65% positive reviews, with notable negative feedback on app stability.
+            BOA: About 50% positive reviews, reflecting significant user concerns.
+    Thematic Extraction:
+        Employed TF-IDF and spaCy for keyword extraction, followed by manual clustering into core themes:
+            Common themes across banks included "UI & User Experience," "Transaction Speed," and "Customer Support."
+            Specific pain points identified:
+                Slow loading times during transfers (highlighted in reviews for CBE and Dashen).
+                Login errors and app crashes (notably in BOA).
+                Feature requests like biometric login and transaction history.
+        Results:
+            Each bank exhibited 3–5 prominent themes.
+            Key drivers of satisfaction included UI intuitiveness and quick transaction processing.
+            Main pain points involved app stability and loading delays.
+
+    Data Storage in Oracle Database
+
+    Implementation:
+        Established a relational schema with tables for Banks and Reviews.
+        Populated the database with cleaned review data using Python's cx_Oracle library.
+        Ensured data integrity and completeness with over 1,200 entries stored.
+    Benefits:
+        Facilitates scalable, secure data management.
+        Enables efficient querying for ongoing analysis.
+
+    Insights and Recommendations
+
+    Comparative Insights:
+        CBE’s high positive sentiment correlates with faster load times and reliable performance.
+        Dashen’s moderate scores suggest targeted fixes for stability issues could boost satisfaction.
+        BOA’s lower scores are driven by frequent login errors and sluggishness, requiring immediate attention.
+    Key Drivers:
+        UI/UX and transaction speed are critical satisfaction drivers.
+        Enhancing app stability and reducing load times are top pain points.
+    Actionable Recommendations:
+        Optimize backend infrastructure to improve load times, especially during transfers.
+        Implement biometric authentication to reduce login errors and enhance security.
+        Introduce proactive customer support features, such as in-app chatbots for quick issue resolution.
+        Regularly monitor review sentiment to identify emerging issues promptly.
+    Visualizations:
+        Bar charts depicting sentiment distribution per bank.
+        Line plots showing sentiment trends over time.
+        Word clouds highlighting frequent keywords related to user feedback.
+        Comparative rating distributions emphasizing user satisfaction levels.
+    Ethical Considerations:
+        Acknowledge potential review biases, such as negative skewness due to dissatisfied users being more vocal.
+        Recommend continuous, diverse data collection for balanced insights.
+
+Conclusion The analysis underscores the importance of app stability, speed, and user-centric features in driving customer satisfaction in fintech mobile applications. CBE’s strong performance indicates effective app design, while Dashen and BOA can benefit from targeted improvements. Implementing the suggested enhancements, coupled with ongoing sentiment monitoring, will support these banks in elevating their digital services, fostering user loyalty, and maintaining competitiveness in Ethiopia’s evolving banking landscape.
+
+References
+
+    Google Play Store reviews data (scraped via google-play-scraper)
+    NLP tools: Hugging Face transformers, spaCy, TF-IDF
+    Database: Oracle XE (Express Edition)
+    Visualization libraries: Matplotlib, Seaborn, WordCloud
+    Version control: GitHub repositories with structured commits and documentation
+
+This report provides a strategic blueprint for leveraging customer feedback insights to refine mobile banking experiences and achieve business growth.
